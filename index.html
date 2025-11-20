@@ -163,32 +163,70 @@
       filter: brightness(1.05);
     }
 
+    /* ====== MOBILE HEADER + MENU VISÍVEL ====== */
     @media (max-width: 720px) {
       .header-shell {
         flex-direction: column;
-        row-gap: 0.6rem;
+        row-gap: 0.35rem;
         border-radius: 0 0 18px 18px;
-        padding: 0.5rem 1rem 0.8rem;
-      }
-
-      .nav-left,
-      .nav-right-links {
-        display: none;
+        padding: 0.6rem 1rem 0.9rem;
+        align-items: center;
       }
 
       .logo-link {
+        order: 1;
         margin: 0;
       }
 
       .logo-img {
-        width: 190px;
+        width: 170px;
+      }
+
+      /* mostra os menus também no topo do celular */
+      .nav-left {
+        order: 2;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-right {
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .nav-right-links {
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+      }
+
+      .nav {
+        font-size: 0.9rem;
+        gap: 1.1rem;
+      }
+
+      .nav-cta {
+        padding: 0.55rem 1.7rem;
+        font-size: 0.95rem;
+      }
+
+      /* some com a imagem grande no mobile para o texto subir */
+      .hero-splash {
+        display: none;
+      }
+
+      .hero-info {
+        padding-top: 1.2rem;
       }
     }
 
-    /* ============ HERO – BANNER ============ */
+    /* ============ HERO – BANNER (DESKTOP) ============ */
     .hero-splash {
       position: relative;
-      height: 320px; /* REDUZIMOS A ALTURA AQUI */
+      height: 320px;
       background-image: url("img/bg-hero.jpeg");
       background-repeat: no-repeat;
       background-size: cover;
@@ -202,7 +240,6 @@
       left: 0;
       right: 0;
       bottom: 0;
-      /* degradê branco menor */
       top: 80%;
       background: linear-gradient(
         to bottom,
@@ -217,7 +254,7 @@
     }
 
     .hero-info {
-      padding: 1.0rem 0 4rem; /* MENOS ESPAÇO EM CIMA DO TEXTO */
+      padding: 1.0rem 0 4rem;
     }
 
     .hero-lead {
@@ -414,7 +451,7 @@
   </header>
 
   <main>
-    <!-- BANNER APENAS COM A IMAGEM -->
+    <!-- BANNER APENAS COM A IMAGEM (DESKTOP) -->
     <section class="hero-splash"></section>
 
     <!-- BLOCO DE TEXTO E RESUMO DA EMPRESA -->
