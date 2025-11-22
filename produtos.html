@@ -16,13 +16,13 @@
       --border-soft: #f0dfcf;
       --radius: 16px;
       --radius-pill: 999px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
@@ -48,7 +48,7 @@
       padding: 0 1.5rem;
     }
 
-    /* ============ HEADER (igual ao index) ============ */
+    /* ============ HEADER IGUAL AO INDEX ============ */
     header {
       position: sticky;
       top: 0;
@@ -96,7 +96,7 @@
     .nav-right-links {
       display: flex;
       gap: 1.8rem;
-      margin-right: auto; /* empurra o botão pro canto direito */
+      margin-right: auto; /* empurra o botão para o canto direito */
     }
 
     .nav a {
@@ -112,7 +112,7 @@
       transform: translateY(-1px);
     }
 
-    /* LOGO CENTRAL */
+    /* LOGO CLICÁVEL */
     .logo-link {
       flex: 0 0 auto;
       display: inline-flex;
@@ -142,7 +142,7 @@
       padding: 0.7rem 1.9rem;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg,#e97a2a,#f6a96c);
+      background: linear-gradient(135deg, #e97a2a, #f6a96c);
       color: #fff;
       font-size: 1rem;
       font-weight: 700;
@@ -180,18 +180,95 @@
       }
     }
 
-    /* ============ CONTEÚDO – PRODUTOS ============ */
+    /* ============ CONTEÚDO ============ */
     main {
       background: #fffdf9;
+      padding: 2.5rem 0 3rem;
     }
 
-    section {
-      padding: 3rem 0;
+    .hero {
+      margin-bottom: 2.5rem;
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(233,122,42,0.08);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      max-width: 30rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlights {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 210px));
+      gap: 0.5rem;
+      margin: 1rem 0 0;
+      font-size: 0.87rem;
+      color: var(--text-light);
+    }
+
+    .hero-highlights li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .hero-photo-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 20px;
+      padding: 1.1rem 1.1rem 0.9rem;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border: 1px solid var(--border-soft);
+    }
+
+    .hero-photo-card img {
+      border-radius: 16px;
+    }
+
+    .hero-photo-caption {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* GRADE DE PRODUTOS */
     .section-header {
       text-align: center;
-      margin-bottom: 2.1rem;
+      margin: 0 auto 1.8rem;
+      max-width: 40rem;
     }
 
     .section-label {
@@ -200,110 +277,139 @@
       letter-spacing: 0.12em;
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .section-title {
-      font-size: 1.7rem;
-      color: var(--text);
+      font-size: 1.6rem;
       margin-bottom: 0.3rem;
+      color: var(--text);
     }
 
     .section-subtitle {
-      font-size: 1.05rem;
-      line-height: 1.9;
+      font-size: 0.92rem;
       color: var(--text-light);
-      max-width: 46rem;
-      margin: 0 auto;
     }
 
-    /* imagem geral da linha de produtos */
-    .products-hero {
-      max-width: 900px;
-      margin: 0 auto 2.3rem;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-    }
-
-    .products-grid {
+    .product-grid {
+      margin-top: 1.4rem;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 1.2rem;
-      margin-top: 1.6rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
     }
 
     @media (max-width: 960px) {
-      .products-grid {
-        grid-template-columns: repeat(2, minmax(0,1fr));
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 640px) {
-      .products-grid {
-        grid-template-columns: minmax(0,1fr);
+    @media (max-width: 620px) {
+      .product-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     .product-card {
       background: rgba(255,255,255,0.97);
-      border-radius: var(--radius);
-      padding: 1rem 0.95rem 0.9rem;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
       border: 1px solid var(--border-soft);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
-      font-size: 0.86rem;
-      color: var(--text-light);
+      padding: 0.9rem 0.9rem 1.1rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 190px;
+      height: 100%;
     }
 
-    /* foto principal de cada produto */
-    .product-photo {
-      margin-bottom: 0.7rem;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.04);
+    .product-image-wrapper {
+      background: radial-gradient(circle at top, #fff7ed 0%, #fffdf9 40%, #ffffff 100%);
+      border-radius: 16px;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
-    .product-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .product-image-wrapper img {
+      border-radius: 12px;
     }
 
     .product-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--accent);
-      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.25rem;
     }
 
-    .product-title {
-      font-size: 0.98rem;
+    .product-name {
+      font-size: 1rem;
       font-weight: 700;
+      margin-bottom: 0.25rem;
       color: var(--text);
-      margin-bottom: 0.2rem;
+    }
+
+    .product-desc {
+      font-size: 0.86rem;
+      color: var(--text-light);
+      margin-bottom: 0.7rem;
     }
 
     .product-meta {
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
+      margin-top: auto;
+      font-size: 0.82rem;
       color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 1px dashed rgba(240,223,207,0.9);
+      padding-top: 0.6rem;
     }
 
     .product-meta span {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .product-meta strong {
+    .pill {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(233,122,42,0.3);
+      font-size: 0.78rem;
       color: var(--accent);
+      background: rgba(233,122,42,0.05);
+      font-weight: 600;
+      white-space: nowrap;
     }
 
-    /* ============ FOOTER ============ */
+    .pill-soft {
+      border-color: rgba(180,148,120,0.35);
+      color: #8a6e57;
+      background: rgba(228,202,176,0.12);
+      font-weight: 500;
+    }
+
+    /* BARRA DE INFO NO FINAL */
+    .extra-info {
+      margin-top: 2.5rem;
+      padding: 1.2rem 1rem;
+      border-radius: 16px;
+      background: linear-gradient(120deg, rgba(233,122,42,0.08), rgba(246,169,108,0.13));
+      border: 1px solid rgba(233,122,42,0.25);
+      font-size: 0.86rem;
+      color: var(--text-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.4rem;
+      align-items: center;
+    }
+
+    .extra-info strong {
+      color: var(--text);
+    }
+
+    /* FOOTER */
     footer {
       border-top: 1px solid var(--border-soft);
       background: rgba(255,247,238,0.96);
@@ -341,7 +447,7 @@
         <a href="produtos.html">Produtos</a>
       </nav>
 
-      <!-- LOGO CENTRAL CLICÁVEL -->
+      <!-- LOGO CLICÁVEL -->
       <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
         <img src="img/logo.png" alt="Cozinha da Gabriela" class="logo-img">
         <div class="logo-text-main">O sabor caseiro que atravessa gerações</div>
@@ -360,100 +466,124 @@
   </header>
 
   <main>
-    <section>
-      <div class="container">
-
-        <!-- foto geral da linha de produtos -->
-        <div class="products-hero">
-          <img src="img/produtos/diversas/produtos-mesa-02.jpeg"
-               alt="Linha de biscoitos Cozinha da Gabriela sobre a mesa">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            Linha fixa Cozinha da Gabriela
+          </div>
+          <h1 class="hero-title">Biscoitos caseiros com sabor de lembrança boa</h1>
+          <p class="hero-subtitle">
+            Massa feita à mão, fornadas pequenas e ingredientes selecionados para lembrar
+            o biscoito da casa da mãe e da avó – agora com padrão para mercados e padarias.
+          </p>
+          <ul class="hero-highlights">
+            <li>Validade de 90 dias, ideal para gôndola.</li>
+            <li>Quatro sabores fixos, com ótimo giro de vendas.</li>
+            <li>Pacote de 150g e 200g em embalagem rígida, fácil de expor.</li>
+          </ul>
         </div>
 
+        <div class="hero-photo-card">
+          <img src="img/produtos/diversas/produtos-mesa-02.jpeg"
+               alt="Linha de biscoitos Cozinha da Gabriela sobre a mesa">
+          <p class="hero-photo-caption">
+            Produção em escala, mas mantendo o cuidado artesanal em cada fornada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
         <div class="section-header">
-          <div class="section-label">Nossos produtos</div>
-          <h2 class="section-title">Linha atual de biscoitos Cozinha da Gabriela</h2>
+          <div class="section-label">Sabores disponíveis</div>
+          <h2 class="section-title">Nossa linha de biscoitos artesanais</h2>
           <p class="section-subtitle">
-            Mix enxuto, com alta aceitação e foco em giro: quatro produtos principais, com peso, preço e validade pensados
-            para o varejo alimentar.
+            Todos os produtos são preparados em uma pequena fábrica familiar em Arenápolis/MT,
+            com receitas que nasceram na cozinha da Gabriela e foram adaptadas para o atacado.
           </p>
         </div>
 
-        <div class="products-grid">
+        <div class="product-grid">
+          <!-- COCO -->
           <article class="product-card">
-            <div>
-              <div class="product-photo">
-                <img src="img/produtos/coco/thumb.jpeg" alt="Biscoito de coco Cozinha da Gabriela">
-              </div>
-              <div class="product-tag">Biscoito de Coco</div>
-              <h3 class="product-title">Coco fresco ralado na hora</h3>
-              <p>
-                Clássico artesanal preparado com coco fresco, garantindo sabor autêntico, aroma marcante e textura que
-                remete a biscoito feito em casa.
-              </p>
+            <div class="product-image-wrapper">
+              <img src="img/produtos/coco/produto-coco-200g-front.jpeg"
+                   alt="Biscoito de coco Cozinha da Gabriela">
             </div>
+            <div class="product-tag">Biscoito de coco</div>
+            <h3 class="product-name">Coco fresco ralado na hora</h3>
+            <p class="product-desc">
+              Clássico artesanal preparado com coco fresco ralado, massa leve e textura crocante.
+              Ideal para acompanhar o café coado de todo dia.
+            </p>
             <div class="product-meta">
-              <span><strong>Peso:</strong> 200 g</span>
-              <span><strong>Validade:</strong> 90 dias</span>
-              <span>Alta aceitação em mercados e padarias, excelente rotatividade.</span>
+              <span><strong>200g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill">Mais vendido</span>
             </div>
           </article>
 
+          <!-- GOIABADA -->
           <article class="product-card">
-            <div>
-              <div class="product-photo">
-                <img src="img/produtos/goiabada/thumb.jpeg" alt="Biscoito de goiabada Cozinha da Gabriela">
-              </div>
-              <div class="product-tag">Biscoito de Goiabada</div>
-              <h3 class="product-title">Massa leve com goiabada natural</h3>
-              <p>
-                Massa amanteigada com pedaços generosos de goiabada natural, trazendo equilíbrio perfeito entre suavidade
-                e doçura, com forte apelo visual.
-              </p>
+            <div class="product-image-wrapper">
+              <img src="img/produtos/goiabada/produto-goiabada-200g-front.jpeg"
+                   alt="Biscoito de goiabada Cozinha da Gabriela">
             </div>
+            <div class="product-tag">Biscoito de goiabada</div>
+            <h3 class="product-name">Massa leve com goiabada natural</h3>
+            <p class="product-desc">
+              Biscoito amanteigado com cubinhos de goiabada, equilibrando doçura e acidez.
+              É aquele clássico que lembra lanche da tarde na casa da avó.
+            </p>
             <div class="product-meta">
-              <span><strong>Peso:</strong> 200 g</span>
-              <span><strong>Validade:</strong> 90 dias</span>
-              <span>Produto campeão de vendas, com giro garantido em prateleiras.</span>
+              <span><strong>200g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill-soft">Perfeito para o café da tarde</span>
             </div>
           </article>
 
+          <!-- LIMÃO -->
           <article class="product-card">
-            <div>
-              <div class="product-photo">
-                <img src="img/produtos/limao/thumb.jpeg" alt="Sequilho de limão Cozinha da Gabriela">
-              </div>
-              <div class="product-tag">Sequilho de Limão</div>
-              <h3 class="product-title">Toque cítrico e leveza</h3>
-              <p>
-                Massa delicada com toque refrescante do limão, que derrete na boca e proporciona leveza a cada pedaço.
-                Ideal para quem busca sabor suave e diferenciado.
-              </p>
+            <div class="product-image-wrapper">
+              <img src="img/produtos/limao/produto-limao-150g-front.jpeg"
+                   alt="Sequilho de limão Cozinha da Gabriela">
             </div>
+            <div class="product-tag">Sequilho de limão</div>
+            <h3 class="product-name">Toque cítrico e leveza</h3>
+            <p class="product-desc">
+              Massa delicada com toque de limão, que desmancha na boca.
+              A opção preferida de quem gosta de biscoito suave, mas marcante.
+            </p>
             <div class="product-meta">
-              <span><strong>Peso:</strong> 150 g</span>
-              <span><strong>Validade:</strong> 90 dias</span>
-              <span>Opção diferenciada que amplia o mix de sabores do ponto de venda.</span>
+              <span><strong>150g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill-soft">Textura que derrete</span>
             </div>
           </article>
 
+          <!-- LEITE CONDENSADO -->
           <article class="product-card">
-            <div>
-              <div class="product-photo">
-                <img src="img/produtos/leite-condensado/thumb.jpeg" alt="Sequilho de leite condensado Cozinha da Gabriela">
-              </div>
-              <div class="product-tag">Sequilho de Leite Condensado</div>
-              <h3 class="product-title">Sabor de receita de família</h3>
-              <p>
-                Receita clássica e macia, com sabor marcante do leite condensado, trazendo aconchego e lembrança das
-                receitas das avós.
-              </p>
+            <div class="product-image-wrapper">
+              <img src="img/produtos/leite-condensado/produto-leite-condensado-150g-front.jpeg"
+                   alt="Sequilho de leite condensado Cozinha da Gabriela">
             </div>
+            <div class="product-tag">Sequilho de leite condensado</div>
+            <h3 class="product-name">Sabor de receita de família</h3>
+            <p class="product-desc">
+              Sequilho tradicional de leite condensado, com sabor de infância e merenda de escola.
+              Combina com café, chá ou aquele leitinho da noite.
+            </p>
             <div class="product-meta">
-              <span><strong>Peso:</strong> 150 g</span>
-              <span><strong>Validade:</strong> 90 dias</span>
-              <span>Grande saída em mercados, padarias e lanchonetes.</span>
+              <span><strong>150g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill">Clássico da casa</span>
             </div>
           </article>
+        </div>
+
+        <div class="extra-info">
+          <strong>Informações para mercados e padarias:</strong>
+          <span>• Embalagem rígida transparente, fácil de expor em gôndola ou balcão.</span>
+          <span>• Rotulagem com tabela nutricional e informações completas.</span>
+          <span>• Produção em escala, mas mantendo o padrão artesanal de fabricação.</span>
         </div>
       </div>
     </section>
